@@ -24,9 +24,6 @@ export class TelegramMarkdown {
         return `||${text}||`
     }
 
-    static silent(text: string) {
-        return this.spoiler(text)
-    }
 }
 
-export const { bold, cursive, crossedOut, monospace, spoiler, silent } = TelegramMarkdown;
+export const { bold, cursive, crossedOut, monospace, spoiler } = TelegramMarkdown;

@@ -20,7 +20,6 @@ describe("TelegramMarkdown", () => {
     });
 
     it("should return spoiler", () => {
-        expect(TelegramMarkdown.silent("idk")).toBe("||idk||");
         expect(TelegramMarkdown.spoiler("idk")).toBe("||idk||");
     });
 
