@@ -11,6 +11,10 @@ describe("TelegramMarkdown", () => {
         expect(TelegramMarkdown.code("woow!")).toBe("```\nwoow!```");
     });
 
+    it ("should return boldCursive text", () => {
+        expect(TelegramMarkdown.boldCursive("idk")).toBe("**__idk__**")
+    })
+
     it("should return code with lang", () => {
         expect(TelegramMarkdown.code("idk", "ts")).toBe("```ts\nidk```");
     });

@@ -1,7 +1,10 @@
 export class TelegramMarkdown {
-
     static bold(text: string): string {
         return `**${text}**`;
+    }
+
+    static boldCursive(text: string): string {
+        return `**__${text}__**`;
     }
 
     static cursive(text: string): string {
@@ -17,13 +20,13 @@ export class TelegramMarkdown {
     }
 
     static code(text: string, lang?: string): string {
-        return `\`\`\`${lang || ""}\n${text}\`\`\``
+        return `\`\`\`${lang || ""}\n${text}\`\`\``;
     }
 
     static spoiler(text: string) {
-        return `||${text}||`
+        return `||${text}||`;
     }
-
 }
 
-export const { bold, cursive, crossedOut, monospace, spoiler } = TelegramMarkdown;
+export const { bold, cursive, crossedOut, monospace, spoiler, boldCursive } =
+    TelegramMarkdown;
