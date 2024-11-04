@@ -57,11 +57,17 @@ export class TelegramMarkdownParser extends BaseParser {
 
     // Link
     static isLink(text: string) {
-        return this.is(text, /\[.*?\]\(.*?\)/g)
+        return this.is(text, /\[.*?\]\(.*?\)/g);
     }
 
     static parseLink(text: string) {
-        return this.is(text, /\[.*?\]\(.*?\)/g)
+        return this.is(text, /\[.*?\]\(.*?\)/g);
+    }
+
+    static isMarkdown(text: string): boolean {
+        const regex =
+            /\*\*(.*?)\*\*|__(.*?)__|\*\*\_\_(.*?)\_\_\*\*|\`(.*?)\`|\`\`\`(.*?)\`\`\`|\|\|(.*?)\|\||\[.*?\]\(.*?\)/;
+        return this.is(text, regex);
     }
 }
 
@@ -78,5 +84,6 @@ export const {
     parseMonospace,
     isSpoiler,
     parseSpoiler,
-    isLink
+    isLink,
+    isMarkdown
 } = TelegramMarkdownParser;

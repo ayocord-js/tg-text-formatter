@@ -1,3 +1,4 @@
+import exp from "constants";
 import { TelegramMarkdownParser } from "..";
 
 describe("TelegramMarkdownParser", () => {
@@ -10,8 +11,12 @@ describe("TelegramMarkdownParser", () => {
 
     it("should return array of bold strings", () => {
         expect(TelegramMarkdownParser.parseBold("idk")).toStrictEqual([]);
-        expect(TelegramMarkdownParser.parseBold("idk **idk** idk")).toStrictEqual(["idk"]);
-        expect(TelegramMarkdownParser.parseBold("idk **idk** idk", true)).toStrictEqual(["**idk**"]);
+        expect(
+            TelegramMarkdownParser.parseBold("idk **idk** idk")
+        ).toStrictEqual(["idk"]);
+        expect(
+            TelegramMarkdownParser.parseBold("idk **idk** idk", true)
+        ).toStrictEqual(["**idk**"]);
     });
 
     // Tests for Cursive
@@ -23,21 +28,33 @@ describe("TelegramMarkdownParser", () => {
 
     it("should return array of cursive strings", () => {
         expect(TelegramMarkdownParser.parseCursive("idk")).toStrictEqual([]);
-        expect(TelegramMarkdownParser.parseCursive("idk __idk__ idk")).toStrictEqual(["idk"]);
-        expect(TelegramMarkdownParser.parseCursive("idk __idk__ idk", true)).toStrictEqual(["__idk__"]);
+        expect(
+            TelegramMarkdownParser.parseCursive("idk __idk__ idk")
+        ).toStrictEqual(["idk"]);
+        expect(
+            TelegramMarkdownParser.parseCursive("idk __idk__ idk", true)
+        ).toStrictEqual(["__idk__"]);
     });
 
     // Tests for Bold and Cursive
     it("should return boolean for bold cursive strings", () => {
         expect(TelegramMarkdownParser.isBoldCursive("**__idk__**")).toBe(true);
         expect(TelegramMarkdownParser.isBoldCursive("idk")).toBe(false);
-        expect(TelegramMarkdownParser.isBoldCursive("**__idk__** idk idk")).toBe(true);
+        expect(
+            TelegramMarkdownParser.isBoldCursive("**__idk__** idk idk")
+        ).toBe(true);
     });
 
     it("should return array of bold cursive strings", () => {
-        expect(TelegramMarkdownParser.parseBoldCursive("idk")).toStrictEqual([]);
-        expect(TelegramMarkdownParser.parseBoldCursive("idk **__idk__** idk")).toStrictEqual(["idk"]);
-        expect(TelegramMarkdownParser.parseBoldCursive("idk **__idk__** idk", true)).toStrictEqual(["**__idk__**"]);
+        expect(TelegramMarkdownParser.parseBoldCursive("idk")).toStrictEqual(
+            []
+        );
+        expect(
+            TelegramMarkdownParser.parseBoldCursive("idk **__idk__** idk")
+        ).toStrictEqual(["idk"]);
+        expect(
+            TelegramMarkdownParser.parseBoldCursive("idk **__idk__** idk", true)
+        ).toStrictEqual(["**__idk__**"]);
     });
 
     // Tests for Monospace
@@ -49,8 +66,12 @@ describe("TelegramMarkdownParser", () => {
 
     it("should return array of monospace strings", () => {
         expect(TelegramMarkdownParser.parseMonospace("idk")).toStrictEqual([]);
-        expect(TelegramMarkdownParser.parseMonospace("idk `idk` idk")).toStrictEqual(["idk"]);
-        expect(TelegramMarkdownParser.parseMonospace("idk `idk` idk", true)).toStrictEqual(["`idk`"]);
+        expect(
+            TelegramMarkdownParser.parseMonospace("idk `idk` idk")
+        ).toStrictEqual(["idk"]);
+        expect(
+            TelegramMarkdownParser.parseMonospace("idk `idk` idk", true)
+        ).toStrictEqual(["`idk`"]);
     });
 
     // Tests for Code
@@ -62,8 +83,12 @@ describe("TelegramMarkdownParser", () => {
 
     it("should return array of code strings", () => {
         expect(TelegramMarkdownParser.parseCode("idk")).toStrictEqual([]);
-        expect(TelegramMarkdownParser.parseCode("idk ```idk``` idk")).toStrictEqual(["idk"]);
-        expect(TelegramMarkdownParser.parseCode("idk ```idk``` idk", true)).toStrictEqual(["```idk```"]);
+        expect(
+            TelegramMarkdownParser.parseCode("idk ```idk``` idk")
+        ).toStrictEqual(["idk"]);
+        expect(
+            TelegramMarkdownParser.parseCode("idk ```idk``` idk", true)
+        ).toStrictEqual(["```idk```"]);
     });
 
     // Tests for Spoiler
@@ -75,13 +100,26 @@ describe("TelegramMarkdownParser", () => {
 
     it("should return array of spoiler strings", () => {
         expect(TelegramMarkdownParser.parseSpoiler("idk")).toStrictEqual([]);
-        expect(TelegramMarkdownParser.parseSpoiler("idk ||idk|| idk")).toStrictEqual(["idk"]);
-        expect(TelegramMarkdownParser.parseSpoiler("idk ||idk|| idk", true)).toStrictEqual(["||idk||"]);
+        expect(
+            TelegramMarkdownParser.parseSpoiler("idk ||idk|| idk")
+        ).toStrictEqual(["idk"]);
+        expect(
+            TelegramMarkdownParser.parseSpoiler("idk ||idk|| idk", true)
+        ).toStrictEqual(["||idk||"]);
     });
 
-    it ("should return boolean for link strings", () => {
+    it("should return boolean for link strings", () => {
         expect(TelegramMarkdownParser.isLink("(idk)[idkd]")).toBe(false);
-        expect(TelegramMarkdownParser.isLink("[idk](idk)")).toBe(true)
-        expect(TelegramMarkdownParser.isLink("idk ||idk|| idk")).toBe(false)
-    })
+        expect(TelegramMarkdownParser.isLink("[idk](idk)")).toBe(true);
+        expect(TelegramMarkdownParser.isLink("idk ||idk|| idk")).toBe(false);
+    });
+
+    it("should check if string has markdown", () => {
+        expect(
+            TelegramMarkdownParser.isMarkdown("**idk** __idk__ ||idk|| dss")
+        ).toBe(true);
+        expect(TelegramMarkdownParser.isMarkdown("idk idk idk dss")).toBe(
+            false
+        );
+    });
 });
