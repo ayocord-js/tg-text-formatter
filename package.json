@@ -1,6 +1,6 @@
 {
     "name": "tg-text-formatter",
-    "version": "1.2.0",
+    "version": "1.2.1",
     "main": "dist/index.js",
     "repository": {
         "url": "https://github.com/Ayomits/tg-text-formatter"
