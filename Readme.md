@@ -12,10 +12,13 @@ Here's the methods which can be useful for you if you don't wanna type markdown 
 
 There are two ways how you can use
 
-<li>
-    <ol>Using class</ol>
-    <ol>Using methods</ol>
-</li>
+<ol>
+    <li>Using classes</li>
+    <li>Using methods</li>
+</ol>
+
+
+# TelegramMarkdown
 
 ## Using class
 
