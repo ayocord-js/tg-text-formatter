@@ -4,6 +4,10 @@ Hello! It's another package for telegram text markdown
 
 Here's the methods which can be useful for you if you don't wanna type markdown marking manually
 
+## Tests of this library
+
+<img src="./tests.png">
+
 ## Ways to using
 
 There are two ways how you can use
