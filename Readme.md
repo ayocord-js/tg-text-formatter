@@ -10,7 +10,7 @@ Here's the methods which can be useful for you if you don't wanna type markdown 
 
 ## Ways to using
 
-There are two ways how you can use
+There are two ways how you can use this library
 
 <ol>
     <li>Using classes</li>
