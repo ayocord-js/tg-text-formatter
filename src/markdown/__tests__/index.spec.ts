@@ -2,7 +2,7 @@ import { TelegramMarkdown } from "..";
 
 describe("TelegramMarkdown", () => {
     it("should return bold text", () => {
-        expect(TelegramMarkdown.bold("idk")).toBe("**idk**");
+        expect(TelegramMarkdown.bold("idk")).toBe("*idk*");
     });
 
     it("should return code text without lang", () => {
@@ -12,7 +12,7 @@ describe("TelegramMarkdown", () => {
     });
 
     it("should return boldCursive text", () => {
-        expect(TelegramMarkdown.boldCursive("idk")).toBe("**__idk__**");
+        expect(TelegramMarkdown.boldCursive("idk")).toBe("*_idk_*");
     });
 
     it("should return code with lang", () => {
@@ -20,7 +20,7 @@ describe("TelegramMarkdown", () => {
     });
 
     it("should return cursive text", () => {
-        expect(TelegramMarkdown.cursive("idk")).toBe("__idk__");
+        expect(TelegramMarkdown.cursive("idk")).toBe("_idk_");
     });
 
     it("should return spoiler", () => {
@@ -28,7 +28,7 @@ describe("TelegramMarkdown", () => {
     });
 
     it("should return crossed out text", () => {
-        expect(TelegramMarkdown.crossedOut("idk")).toBe("~~idk~~");
+        expect(TelegramMarkdown.crossedOut("idk")).toBe("~idk~");
     });
 
     it("should return monospace text", () => {

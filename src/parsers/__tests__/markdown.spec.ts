@@ -4,57 +4,36 @@ import { TelegramMarkdownParser } from "..";
 describe("TelegramMarkdownParser", () => {
     // Tests for Bold
     it("should return boolean for bold strings", () => {
-        expect(TelegramMarkdownParser.isBold("**idk**")).toBe(true);
+        expect(TelegramMarkdownParser.isBold("*idk*")).toBe(true);
         expect(TelegramMarkdownParser.isBold("idk")).toBe(false);
-        expect(TelegramMarkdownParser.isBold("**idk** idk idk")).toBe(true);
+        expect(TelegramMarkdownParser.isBold("*idk* idk idk")).toBe(true);
     });
 
     it("should return array of bold strings", () => {
         expect(TelegramMarkdownParser.parseBold("idk")).toStrictEqual([]);
         expect(
-            TelegramMarkdownParser.parseBold("idk **idk** idk")
+            TelegramMarkdownParser.parseBold("idk *idk* idk")
         ).toStrictEqual(["idk"]);
         expect(
-            TelegramMarkdownParser.parseBold("idk **idk** idk", true)
-        ).toStrictEqual(["**idk**"]);
+            TelegramMarkdownParser.parseBold("idk *idk* idk", true)
+        ).toStrictEqual(["*idk*"]);
     });
 
     // Tests for Cursive
     it("should return boolean for cursive strings", () => {
-        expect(TelegramMarkdownParser.isCursive("__idk__")).toBe(true);
+        expect(TelegramMarkdownParser.isCursive("_idk_")).toBe(true);
         expect(TelegramMarkdownParser.isCursive("idk")).toBe(false);
-        expect(TelegramMarkdownParser.isCursive("__idk__ idk idk")).toBe(true);
+        expect(TelegramMarkdownParser.isCursive("_idk_ idk idk")).toBe(true);
     });
 
     it("should return array of cursive strings", () => {
         expect(TelegramMarkdownParser.parseCursive("idk")).toStrictEqual([]);
         expect(
-            TelegramMarkdownParser.parseCursive("idk __idk__ idk")
+            TelegramMarkdownParser.parseCursive("idk _idk_ idk")
         ).toStrictEqual(["idk"]);
         expect(
-            TelegramMarkdownParser.parseCursive("idk __idk__ idk", true)
-        ).toStrictEqual(["__idk__"]);
-    });
-
-    // Tests for Bold and Cursive
-    it("should return boolean for bold cursive strings", () => {
-        expect(TelegramMarkdownParser.isBoldCursive("**__idk__**")).toBe(true);
-        expect(TelegramMarkdownParser.isBoldCursive("idk")).toBe(false);
-        expect(
-            TelegramMarkdownParser.isBoldCursive("**__idk__** idk idk")
-        ).toBe(true);
-    });
-
-    it("should return array of bold cursive strings", () => {
-        expect(TelegramMarkdownParser.parseBoldCursive("idk")).toStrictEqual(
-            []
-        );
-        expect(
-            TelegramMarkdownParser.parseBoldCursive("idk **__idk__** idk")
-        ).toStrictEqual(["idk"]);
-        expect(
-            TelegramMarkdownParser.parseBoldCursive("idk **__idk__** idk", true)
-        ).toStrictEqual(["**__idk__**"]);
+            TelegramMarkdownParser.parseCursive("idk _idk_ idk", true)
+        ).toStrictEqual(["_idk_"]);
     });
 
     // Tests for Monospace
@@ -112,14 +91,5 @@ describe("TelegramMarkdownParser", () => {
         expect(TelegramMarkdownParser.isLink("(idk)[idkd]")).toBe(false);
         expect(TelegramMarkdownParser.isLink("[idk](idk)")).toBe(true);
         expect(TelegramMarkdownParser.isLink("idk ||idk|| idk")).toBe(false);
-    });
-
-    it("should check if string has markdown", () => {
-        expect(
-            TelegramMarkdownParser.isMarkdown("**idk** __idk__ ||idk|| dss")
-        ).toBe(true);
-        expect(TelegramMarkdownParser.isMarkdown("idk idk idk dss")).toBe(
-            false
-        );
     });
 });

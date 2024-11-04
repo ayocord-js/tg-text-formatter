@@ -7,8 +7,6 @@ export class TelegramMarkdownParser extends BaseParser {
             parseBold: this.parseBold.bind(this),
             isCursive: this.isCursive.bind(this),
             parseCursive: this.parseCursive.bind(this),
-            isBoldCursive: this.isBoldCursive.bind(this),
-            parseBoldCursive: this.parseBoldCursive.bind(this),
             isMonospace: this.isMonospace.bind(this),
             parseMonospace: this.parseMonospace.bind(this),
             isCode: this.isCode.bind(this),
@@ -17,35 +15,32 @@ export class TelegramMarkdownParser extends BaseParser {
             parseSpoiler: this.parseSpoiler.bind(this),
             isLink: this.isLink.bind(this),
             parseLink: this.parseLink.bind(this),
-            isMarkdown: this.isMarkdown.bind(this),
         };
     }
 
     // Bold
     static isBold(text: string): boolean {
-        return this.is(text, /\*\*(.*?)\*\*/);
+        return this.is(text, /\*(.*?)\*/);
     }
 
     static parseBold(text: string, markdown = false): string[] {
-        return this.parse(text, /\*\*(.*?)\*\*/g, markdown);
+        return this.parse(text, /\*(.*?)\*/g, markdown);
     }
 
     // Cursive
     static isCursive(text: string): boolean {
-        return this.is(text, /__(.*?)__/);
+        return this.is(text, /\_(.*?)\_/);
+    }
+
+    static isUnderline(text: string) {
+        return this.is(text, /\_\_(.*?)\_\_/);
+    }
+    static parseUnderline(text: string, markdown = false) {
+        return this.parse(text, /\_\_(.*?)\_\_/, markdown);
     }
 
     static parseCursive(text: string, markdown = false): string[] {
-        return this.parse(text, /__(.*?)__/g, markdown);
-    }
-
-    // Bold and Cursive
-    static isBoldCursive(text: string): boolean {
-        return this.is(text, /\*\*__(.*?)__\*\*/);
-    }
-
-    static parseBoldCursive(text: string, markdown = false): string[] {
-        return this.parse(text, /\*\*\_\_(.*?)\_\_\*\*/g, markdown);
+        return this.parse(text, /\_(.*?)\_/g, markdown);
     }
 
     // Monospace
@@ -83,21 +78,12 @@ export class TelegramMarkdownParser extends BaseParser {
     static parseLink(text: string) {
         return this.is(text, /\[.*?\]\(.*?\)/g);
     }
-
-    static isMarkdown(text: string): boolean {
-        const regex =
-            /\*\*(.*?)\*\*|__(.*?)__|\*\*\_\_(.*?)\_\_\*\*|\`(.*?)\`|\`\`\`(.*?)\`\`\`|\|\|(.*?)\|\||\[.*?\]\(.*?\)/;
-        return this.is(text, regex);
-    }
 }
 
 export const {
     isBold,
     parseBold,
     isCursive,
-    parseCursive,
-    isBoldCursive,
-    parseBoldCursive,
     isMonospace,
     parseMonospace,
     isCode,
@@ -106,5 +92,4 @@ export const {
     parseSpoiler,
     isLink,
     parseLink,
-    isMarkdown
 } = TelegramMarkdownParser.getMethods();

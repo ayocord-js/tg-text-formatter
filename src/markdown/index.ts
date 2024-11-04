@@ -7,28 +7,35 @@ export class TelegramMarkdown {
      * Returns bold text format
      */
     static bold(text: string): string {
-        return `**${text}**`;
+        return `*${text}*`;
     }
 
     /**
      * Returns ***bold cursive*** text format
      * */
     static boldCursive(text: string): string {
-        return `**__${text}__**`;
+        return `*_${text}_*`;
     }
 
     /**
      *  Returns *cursive* text format
      */
     static cursive(text: string): string {
-        return `__${text}__`;
+        return `_${text}_`;
+    }
+
+    /**
+     * Returns __text__ text format
+     *  */ 
+    static underline(text: string) {
+        return `__${text}__`
     }
 
     /**
      * Returns ~~crossed out~~ text format
      * */
     static crossedOut(text: string): string {
-        return `~~${text}~~`;
+        return `~${text}~`;
     }
 
     /**
