@@ -1,6 +1,13 @@
 import { BaseParser } from "./abstractions";
 
 export class TelegramMentionParsers extends BaseParser {
+    static getMethods() {
+        return {
+            isMention: this.isMention.bind(this),
+            mentions: this.mentions.bind(this),
+            isLinkMention: this.isLinkMention.bind(this),
+        };
+    }
     static isMention(content: string) {
         return this.is(content, /(?<!@)@([^\s@]+)/);
     }
@@ -14,4 +21,5 @@ export class TelegramMentionParsers extends BaseParser {
     }
 }
 
-export const { isMention, mentions, isLinkMention } = TelegramMentionParsers;
+export const { isMention, mentions, isLinkMention } =
+    TelegramMentionParsers.getMethods();

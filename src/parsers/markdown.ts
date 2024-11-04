@@ -1,6 +1,26 @@
 import { BaseParser } from "./abstractions";
 
 export class TelegramMarkdownParser extends BaseParser {
+    static getMethods() {
+        return {
+            isBold: this.isBold.bind(this),
+            parseBold: this.parseBold.bind(this),
+            isCursive: this.isCursive.bind(this),
+            parseCursive: this.parseCursive.bind(this),
+            isBoldCursive: this.isBoldCursive.bind(this),
+            parseBoldCursive: this.parseBoldCursive.bind(this),
+            isMonospace: this.isMonospace.bind(this),
+            parseMonospace: this.parseMonospace.bind(this),
+            isCode: this.isCode.bind(this),
+            parseCode: this.parseCode.bind(this),
+            isSpoiler: this.isSpoiler.bind(this),
+            parseSpoiler: this.parseSpoiler.bind(this),
+            isLink: this.isLink.bind(this),
+            parseLink: this.parseLink.bind(this),
+            isMarkdown: this.isMarkdown.bind(this),
+        };
+    }
+
     // Bold
     static isBold(text: string): boolean {
         return this.is(text, /\*\*(.*?)\*\*/);
@@ -78,12 +98,13 @@ export const {
     parseCursive,
     isBoldCursive,
     parseBoldCursive,
-    isCode,
-    parseCode,
     isMonospace,
     parseMonospace,
+    isCode,
+    parseCode,
     isSpoiler,
     parseSpoiler,
     isLink,
+    parseLink,
     isMarkdown
-} = TelegramMarkdownParser;
+} = TelegramMarkdownParser.getMethods();
