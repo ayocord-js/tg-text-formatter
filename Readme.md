@@ -1,3 +1,4 @@
+[![TypeScript](https://img.shields.io/badge/TypeScript-2e78b2?logo=typescript&logoColor=white&style=flat-square)](https://www.typescriptlang.org/)
 # Tg Text Formatter
 
 Hello! Welcome to the **tg-text-formatter** package for Telegram text markdown. This library provides convenient methods for formatting text without the hassle of manual markdown syntax.
