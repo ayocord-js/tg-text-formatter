@@ -4,6 +4,16 @@ Hello! It's another package for telegram text markdown
 
 Here's the methods which can be useful for you if you don't wanna type markdown marking manually
 
+## Installation
+
+```bash
+npm i tg-text-formatter
+```
+
+```bash
+yarn add tg-text-formatter
+```
+
 ## Tests of this library
 
 <img src="./tests.png">
@@ -16,7 +26,6 @@ There are two ways how you can use this library
     <li>Using classes</li>
     <li>Using methods</li>
 </ol>
-
 
 # TelegramMarkdown
 

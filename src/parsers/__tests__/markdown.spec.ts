@@ -78,4 +78,10 @@ describe("TelegramMarkdownParser", () => {
         expect(TelegramMarkdownParser.parseSpoiler("idk ||idk|| idk")).toStrictEqual(["idk"]);
         expect(TelegramMarkdownParser.parseSpoiler("idk ||idk|| idk", true)).toStrictEqual(["||idk||"]);
     });
+
+    it ("should return boolean for link strings", () => {
+        expect(TelegramMarkdownParser.isLink("(idk)[idkd]")).toBe(false);
+        expect(TelegramMarkdownParser.isLink("[idk](idk)")).toBe(true)
+        expect(TelegramMarkdownParser.isLink("idk ||idk|| idk")).toBe(false)
+    })
 });

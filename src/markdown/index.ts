@@ -1,6 +1,9 @@
+/**
+ * This class using markdown v2
+ */
 export class TelegramMarkdown {
     /**
-     * 
+     *
      * Returns bold text format
      */
     static bold(text: string): string {
@@ -23,22 +26,22 @@ export class TelegramMarkdown {
 
     /**
      * Returns ~~crossed out~~ text format
-     * */ 
+     * */
     static crossedOut(text: string): string {
         return `~~${text}~~`;
     }
 
     /**
-     * 
+     *
      * Returns `monospace` text format
      */
     static monospace(text: string): string {
         return `\`${text}\``;
     }
 
-    /** 
+    /**
      * Returns code text format
-     * */ 
+     * */
     static code(text: string, lang?: string): string {
         return `\`\`\`${lang || ""}\n${text}\`\`\``;
     }
@@ -48,6 +51,13 @@ export class TelegramMarkdown {
      */
     static spoiler(text: string) {
         return `||${text}||`;
+    }
+
+    /**
+     * Returns link text format
+     */
+    static link(text: string, link: string) {
+        return `[${text}](${link})`;
     }
 }
 
