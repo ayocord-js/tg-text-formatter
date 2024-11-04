@@ -124,5 +124,6 @@ The **TelegramMarkdownParser** class provides methods for detecting and parsing 
 - `parseSpoiler(text: string, markdown = false): string[]` - Parses spoilers.
 - `isLink(text: string): boolean` - Checks if the text contains a markdown link.
 - `parseLink(text: string): boolean` - Parses markdown links.
+- `isMarkdown(text: string): boolean` - Checks if the text contains any markdown
 
 Now you can easily format your Telegram messages and manage mentions with this comprehensive library!
