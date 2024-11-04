@@ -78,4 +78,5 @@ export const {
     parseMonospace,
     isSpoiler,
     parseSpoiler,
+    isLink
 } = TelegramMarkdownParser;
